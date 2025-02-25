@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Productos - Césped Artificial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #16a085;
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .navbar li {
+            display: inline;
+            margin-right: 30px;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #1abc9c;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 80px 20px 20px;
+            text-align: center;
+        }
+        .productos, .materiales, .contacto {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .producto, .material {
+            background: white;
+            margin: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 30%;
+            vertical-align: top;
+        }
+        .producto img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1abc9c;
+        }
+        footer {
+            background: #16a085;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="../HOME/home.html">Home</a></li>
+            <li><a href="../PROYECTOS/projects.html">Our Projects</a></li>
+            <li><a href="#Products">Our Products</a></li>
+            <li><a href="../CONTACT US/contactUs.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <header>
+        <h1>Our Products</h1>
+        <p>Discover our variety of high-quality artificial grass, designed to adapt to different needs and styles.</p>
+    </header>
+
+    <section class="productos">
+        <div class="producto">
+            <img src="../PRODUCTOS/Gramas/Multisport/multisport.png" alt="Premium Grass">
+            <h2>Multisport</h2>
+            <p>Multisport mixes monofilaments with memory effect offering a great recovery. Its two shades of green give a great realistic look. It is the perfect solution for limited spaces. It is strong, durable and highly resilient. Great performance with low maintenance.</p>
+            <div class="buttons">
+                <button onclick="window.open('Gramas/Multisport/AGW-Multisport-1.pdf', '_blank')">View More</button>
+                <button onclick="location.href='quote.html'">Request a Quote</button>
+            </div>
+        </div>
+
+        <div class="producto">
+            <img src="../PRODUCTOS/Gramas/AGW-100/pro100.png" alt="Pet-Friendly Grass">
+            <h2>AGW-100</h2>
+            <p>Durable, fast drainage, and easy to clean.</p>
+            <div class="buttons">
+                <button onclick="window.open('Gramas/AGW-100/AGW-100-1.pdf', '_blank')">View More</button>
+                <button onclick="location.href='quote.html'">Request a Quote</button>
+            </div>
+        </div>
+
+        <div class="producto">
+            <img src="../PRODUCTOS/Gramas/Putting-Green/putting-green-1.jpg" alt="Sports Grass">
+            <h2>Putting-Green</h2>
+            <p>High durability and impact absorption for fields or play areas.</p>
+            <div class="buttons">
+                <button onclick="window.open('Gramas/Putting-Green/putting-green.pdf', '_blank')">View More</button>
+                <button onclick="location.href='quote.html'">Request a Quote</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Artificial Grass Tampa. All rights reserved.</p>
+    </footer>
+</body>
+</html>
