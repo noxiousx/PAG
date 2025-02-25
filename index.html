@@ -11,7 +11,9 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            padding-top: 60px; /* Ajusta esto para que coincida con la altura del navbar */
         }
+
         /* Navbar Styles */
         .navbar {
             position: fixed;
@@ -23,17 +25,23 @@
             padding: 15px 20px;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
         .navbar ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            text-align: center;
+            display: flex;
+            align-items: center;
         }
+
         .navbar li {
-            display: inline;
             margin-right: 30px;
         }
+
         .navbar a {
             text-decoration: none;
             color: white;
@@ -41,32 +49,82 @@
             font-weight: bold;
             transition: color 0.3s;
         }
+
         .navbar a:hover {
             color: #1abc9c;
         }
-        /* To prevent the navbar from overlapping content */
-        body {
-            padding-top:px; /* Adjust this if needed */
+
+        /* Hamburger Menu Styles */
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
         }
+
+        .navbar-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #16a085;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar li {
+                margin: 15px 0; /* Más espacio para dispositivos táctiles */
+                text-align: center;
+            }
+
+            .navbar a {
+                font-size: 20px; /* Texto más grande para móviles */
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+        }
+
+        /* Hero Section */
         .hero {
             background-image: url('Resources/Photos/back.jpg'); /* Cambia la imagen aquí */
             background-size: cover;
             color: white;
             text-align: center;
             padding: 100px 20px;
+            margin-top: -60px; /* Elimina el espacio extra */
         }
+
         .hero-logo {
-            max-width: 300px;
+            max-width: 100%; /* Ajusta el logo al ancho de la pantalla */
+            height: auto;
             margin-bottom: 20px;
         }
+
         .hero h1 {
-            font-size: 48px;
+            font-size: 36px; /* Tamaño más pequeño para móviles */
             margin-bottom: 20px;
         }
+
         .hero p {
-            font-size: 20px;
+            font-size: 18px; /* Tamaño más pequeño para móviles */
             margin-bottom: 30px;
         }
+
         .cta-button {
             padding: 15px 30px;
             background-color: #16a085;
@@ -77,44 +135,54 @@
             cursor: pointer;
             text-decoration: none;
         }
+
         .cta-button:hover {
             background-color: #1abc9c;
         }
+
+        /* Services, Benefits, and Testimonials Sections */
         .services, .benefits, .testimonials {
             padding: 50px 20px;
             text-align: center;
         }
+
         .services h2, .benefits h2, .testimonials h2 {
             color: #16a085;
             font-size: 36px;
             margin-bottom: 30px;
         }
-        .services .service, .benefits .benefit, .testimonials .testimonial {
-            display: inline-block;
-            width: 30%;
-            margin: 20px;
+
+        .service, .benefit, .testimonial {
+            width: 100%; /* Ocupa el 100% del ancho en móviles */
+            margin: 20px 0; /* Espaciado vertical */
             padding: 20px;
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             text-align: center;
         }
+
         .service img, .benefit img {
             width: 50px;
             margin-bottom: 15px;
         }
+
         .testimonial p {
             font-style: italic;
         }
+
+        /* Contact Section */
         .contact {
             background-color: #16a085;
             color: white;
             padding: 50px 20px;
             text-align: center;
         }
+
         .contact h2 {
             margin-bottom: 20px;
         }
+
         footer {
             text-align: center;
             padding: 15px 0;
@@ -122,13 +190,28 @@
             color: white;
             margin-top: 20px;
         }
+
+        /* Flexbox para secciones en pantallas grandes */
+        @media (min-width: 769px) {
+            .services .service, .benefits .benefit, .testimonials .testimonial {
+                width: 30%; /* 3 columnas en pantallas grandes */
+                display: inline-block;
+                margin: 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Navbar Section -->
     <div class="navbar">
-        <ul>
+        <div class="navbar-brand">Pradera Artificial Grass</div>
+        <div class="navbar-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar-menu" id="navbar-menu">
             <li><a href="#index">Home</a></li>
             <li><a href="PROYECTOS/projects.html">Our Projects</a></li>
             <li><a href="PRODUCTOS/products.html">Our Products</a></li>
@@ -206,5 +289,14 @@
         <p>&copy; 2025 Pradera Artificial Grass LLC. All Reserved Rights.</p>
     </footer>
 
+    <script>
+        // JavaScript para la funcionalidad del menú de hamburguesa
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
