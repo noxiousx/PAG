@@ -12,6 +12,8 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+
+        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
@@ -22,17 +24,23 @@
             padding: 15px 20px;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
         .navbar ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            text-align: center;
+            display: flex;
+            align-items: center;
         }
+
         .navbar li {
-            display: inline;
             margin-right: 30px;
         }
+
         .navbar a {
             text-decoration: none;
             color: white;
@@ -40,21 +48,41 @@
             font-weight: bold;
             transition: color 0.3s;
         }
+
         .navbar a:hover {
             color: #1abc9c;
         }
+
+        /* Hamburger Menu */
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px 40px; /* Ajuste del padding */
+        }
+
+        .navbar-toggle .bar {
+            width: 30px;
+            height: 4px;
+            background-color: white;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
         header {
             background: #2c3e50;
             color: white;
             padding: 80px 20px 20px;
             text-align: center;
         }
+
         .productos, .materiales, .contacto {
             max-width: 1200px;
             margin: auto;
             padding: 20px;
             text-align: center;
         }
+
         .producto, .material {
             background: white;
             margin: 20px;
@@ -65,14 +93,17 @@
             width: 30%;
             vertical-align: top;
         }
+
         .producto img {
             width: 100%;
             max-width: 300px;
             border-radius: 10px;
         }
+
         .buttons {
             margin-top: 10px;
         }
+
         button {
             background: #27ae60;
             color: white;
@@ -82,9 +113,11 @@
             border-radius: 5px;
             margin: 5px;
         }
+
         button:hover {
             background: #1abc9c;
         }
+
         footer {
             background: #16a085;
             color: white;
@@ -92,11 +125,65 @@
             padding: 15px 0;
             margin-top: 20px;
         }
+
+        /* =============================
+           Media Queries para Responsividad
+           ============================= */
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #16a085;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+
+            .producto {
+                width: 100%; /* Apila los productos verticalmente */
+                margin: 10px 0;
+            }
+
+            header {
+                padding: 100px 20px 20px; /* Ajuste del padding superior */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar a {
+                font-size: 16px;
+            }
+
+            .producto {
+                width: 100%; /* Asegura que ocupe todo el ancho */
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Navbar -->
     <div class="navbar">
-        <ul>
+        <div class="navbar-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar-menu" id="navbar-menu">
             <li><a href="../index.html">Home</a></li>
             <li><a href="../PROYECTOS/projects.html">Our Projects</a></li>
             <li><a href="#Products">Our Products</a></li>
@@ -144,5 +231,15 @@
     <footer>
         <p>&copy; 2025 Artificial Grass Tampa. All rights reserved.</p>
     </footer>
+
+    <!-- Script para el menú de hamburguesa -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
