@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestros Productos - Césped Artificial</title>
+    <title>Premium Artificial Grass Products | Artificial Grass Tampa</title>
+    <meta name="description" content="Discover our high-quality artificial grass products for residential, commercial and sports applications. Request a free quote today!">
     <link rel="icon" type="image/png" href="../Resources/Photos/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #27ae60;
+            --primary-dark: #16a085;
+            --secondary-color: #2c3e50;
+            --light-color: #f4f4f4;
+            --dark-color: #333;
+            --white: #fff;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
         }
 
         /* Navbar */
@@ -19,38 +38,71 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #000000;
-            color: white;
-            padding: 15px 20px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
             z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--box-shadow);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .navbar ul {
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar-menu {
             list-style-type: none;
-            margin: 0;
-            padding: 0;
             display: flex;
             align-items: center;
         }
 
         .navbar li {
-            margin-right: 30px;
+            margin-left: 2rem;
         }
 
         .navbar a {
             text-decoration: none;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            transition: color 0.3s;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
         }
 
         .navbar a:hover {
-            color: #1abc9c;
+            color: var(--primary-color);
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        .navbar .logo {
+            height: 2.5rem;
+            transition: var(--transition);
+        }
+
+        .navbar .logo:hover {
+            transform: scale(1.05);
         }
 
         /* Hamburger Menu */
@@ -58,189 +110,543 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            padding: 10px 40px; /* Ajuste del padding */
+            padding: 0.5rem;
         }
 
         .navbar-toggle .bar {
-            width: 30px;
-            height: 4px;
-            background-color: white;
-            margin: 4px 0;
-            transition: all 0.3s ease;
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            margin: 3px 0;
+            transition: var(--transition);
         }
 
-        .navbar .logo {
-            height: 40px;
-            margin-right: 40px;
+        .navbar-toggle.active .bar:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
         }
 
+        .navbar-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggle.active .bar:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        /* Header */
         header {
-            color: #2c3e50;
-            padding: 80px 20px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../Resources/Photos/grass-banner.jpg') center/cover no-repeat;
+            color: var(--white);
+            padding: 8rem 1rem 2rem;
             text-align: center;
+            margin-bottom: 2rem;
         }
 
-        .productos, .materiales, .contacto {
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Product Section */
+        .container {
             max-width: 1200px;
-            margin: auto;
-            padding: 20px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
             text-align: center;
+            margin-bottom: 3rem;
+            color: var(--secondary-color);
+            position: relative;
         }
 
-        .producto, .material {
-            background: white;
-            margin: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            width: 30%;
-            vertical-align: top;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
         }
 
-        .producto img {
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
             width: 100%;
-            max-width: 300px;
-            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
         }
 
-        .buttons {
-            margin-top: 10px;
+        .product-content {
+            padding: 1.5rem;
         }
 
-        button {
-            background: #27ae60;
-            color: white;
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
             border: none;
-            padding: 10px 15px;
-            cursor: pointer;
             border-radius: 5px;
-            margin: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            margin-right: 0.5rem;
         }
 
-        button:hover {
-            background: #1abc9c;
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
-        footer {
-            background: #16a085;
-            color: white;
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--white);
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
             text-align: center;
-            padding: 15px 0;
-            margin-top: 20px;
+            padding: 1.5rem;
         }
 
-        /* =============================
-           Media Queries para Responsividad
-           ============================= */
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--white);
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .navbar ul {
+            .navbar-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-menu {
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                background-color: #16a085;
+                background-color: var(--secondary-color);
                 position: absolute;
-                top: 60px;
+                top: 70px;
                 left: 0;
-                padding: 10px 0;
+                padding: 1rem 0;
+                z-index: 999;
             }
 
-            .navbar ul.active {
+            .navbar-menu.active {
                 display: flex;
             }
 
             .navbar li {
-                margin: 15px 0;
+                margin: 0.5rem 0;
                 text-align: center;
+                width: 100%;
+            }
+
+            .navbar a {
+                display: block;
+                padding: 0.5rem 1rem;
             }
 
             .navbar-toggle {
                 display: flex;
-            }
-
-            .producto {
-                width: 100%; /* Apila los productos verticalmente */
-                margin: 10px 0;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
             }
 
             header {
-                padding: 100px 20px 20px; /* Ajuste del padding superior */
+                padding: 6rem 1rem 2rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
-            .navbar a {
-                font-size: 16px;
+            .navbar {
+                padding: 0.8rem 1rem;
             }
 
-            .producto {
-                width: 100%; /* Asegura que ocupe todo el ancho */
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <div class="navbar">
-        <div class="navbar-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="../index.html"><img src="../Resources/Photos/logo.png" alt="Artificial Grass Tampa Logo" class="logo"></a>
+            
+            <div class="navbar-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../PROYECTOS/projects.html">Our Projects</a></li>
+                <li><a href="#Products" class="active">Our Products</a></li>
+                <li><a href="../CONTACT US/contactUs.html">Contact Us</a></li>
+            </ul>
         </div>
-        <div><img src="../Resources/Photos/logo.png" alt="Logo" class="logo"></div>
-        <ul class="navbar-menu" id="navbar-menu">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../PROYECTOS/projects.html">Our Projects</a></li>
-            <li><a href="#Products">Our Products</a></li>
-            <li><a href="../CONTACT US/contactUs.html">Contact Us</a></li>
-        </ul>
-    </div>
+    </nav>
 
+    <!-- Header -->
     <header>
-        <h1>Our Products</h1>
-        <p>Discover our variety of high-quality artificial grass, designed to adapt to different needs and styles.</p>
+        <h1>Premium Artificial Grass Products</h1>
+        <p>Discover our extensive collection of high-quality artificial turf solutions designed for residential, commercial and sports applications.</p>
     </header>
 
-    <section class="productos">
-        <div class="producto">
-            <img src="../PRODUCTOS/Gramas/Multisport/multisport.png" alt="Premium Grass">
-            <h2>Multisport</h2>
-            <div class="buttons">
-                <button onclick="window.open('Gramas/Multisport/AGW-Multisport-1.pdf', '_blank')">View More</button>
-                <button onclick="location.href='quote.html'">Request a Quote</button>
+    <!-- Main Content -->
+    <main class="container">
+        <section id="products">
+            <h2 class="section-title">Our Product Line</h2>
+            
+            <div class="products-grid">
+                <!-- Highland -->
+                <div class="product-card">
+                    <img src="../PRODUCTOS/Gramas/Highland/highland.png" alt="Highland artificial grass" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Highland</h3>
+                        <p class="product-description">Premium residential grass with natural look and feel, perfect for backyards and gardens.</p>
+                        <div class="buttons">
+                            <a href="Gramas/Highland/Highland.pdf" target="_blank" class="btn btn-outline">
+                                <i class="fas fa-file-pdf"></i> Specifications
+                            </a>
+                            <a href="quote.html" class="btn">
+                                <i class="fas fa-dollar-sign"></i> Get Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AGW-80 -->
+                <div class="product-card">
+                    <img src="../PRODUCTOS/Gramas/AGW-80/pro80.png" alt="AGW-80 artificial grass" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">AGW-80</h3>
+                        <p class="product-description">Durable commercial-grade turf with excellent drainage for high-traffic areas.</p>
+                        <div class="buttons">
+                            <a href="Gramas/AGW-80/AGW-80-4.pdf" target="_blank" class="btn btn-outline">
+                                <i class="fas fa-file-pdf"></i> Specifications
+                            </a>
+                            <a href="quote.html" class="btn">
+                                <i class="fas fa-dollar-sign"></i> Get Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Forte -->
+                <div class="product-card">
+                    <img src="../PRODUCTOS/Gramas/Forte/forte.png" alt="Forte artificial grass" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Forte</h3>
+                        <p class="product-description">Luxury grass with ultra-soft texture, ideal for children's play areas and pets.</p>
+                        <div class="buttons">
+                            <a href="Gramas/Forte/Forte.pdf" target="_blank" class="btn btn-outline">
+                                <i class="fas fa-file-pdf"></i> Specifications
+                            </a>
+                            <a href="quote.html" class="btn">
+                                <i class="fas fa-dollar-sign"></i> Get Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AGW-Master -->
+                <div class="product-card">
+                    <img src="../PRODUCTOS/Gramas/AGW-Master/master.png" alt="AGW-Master artificial grass" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">AGW-Master</h3>
+                        <p class="product-description">Professional-grade turf for sports fields and golf courses with superior performance.</p>
+                        <div class="buttons">
+                            <a href="Gramas/AGW-Master/Specification-12.pdf" target="_blank" class="btn btn-outline">
+                                <i class="fas fa-file-pdf"></i> Specifications
+                            </a>
+                            <a href="quote.html" class="btn">
+                                <i class="fas fa-dollar-sign"></i> Get Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Multisport -->
+                <div class="product-card">
+                    <img src="../PRODUCTOS/Gramas/Multisport/multisport.png" alt="Multisport artificial grass" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Multisport</h3>
+                        <p class="product-description">Versatile turf designed for various sports activities with excellent shock absorption.</p>
+                        <div class="buttons">
+                            <a href="Gramas/Multisport/AGW-Multisport-1.pdf" target="_blank" class="btn btn-outline">
+                                <i class="fas fa-file-pdf"></i> Specifications
+                            </a>
+                            <a href="quote.html" class="btn">
+                                <i class="fas fa-dollar-sign"></i> Get Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AGW-100 -->
+                <div class="product-card">
+                    <img src="../PRODUCTOS/Gramas/AGW-100/pro100.png" alt="AGW-100 artificial grass" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">AGW-100</h3>
+                        <p class="product-description">Heavy-duty turf with enhanced durability for commercial landscapes and public spaces.</p>
+                        <div class="buttons">
+                            <a href="Gramas/AGW-100/AGW-100-1.pdf" target="_blank" class="btn btn-outline">
+                                <i class="fas fa-file-pdf"></i> Specifications
+                            </a>
+                            <a href="quote.html" class="btn">
+                                <i class="fas fa-dollar-sign"></i> Get Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Putting-Green -->
+                <div class="product-card">
+                    <img src="../PRODUCTOS/Gramas/Putting-Green/putting-green-1.jpg" alt="Putting Green artificial grass" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Putting Green</h3>
+                        <p class="product-description">Professional putting green turf with true ball roll and consistent speed.</p>
+                        <div class="buttons">
+                            <a href="Gramas/Putting-Green/putting-green.pdf" target="_blank" class="btn btn-outline">
+                                <i class="fas fa-file-pdf"></i> Specifications
+                            </a>
+                            <a href="quote.html" class="btn">
+                                <i class="fas fa-dollar-sign"></i> Get Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="producto">
-            <img src="../PRODUCTOS/Gramas/AGW-100/pro100.png" alt="Pet-Friendly Grass">
-            <h2>AGW-100</h2>
-            <div class="buttons">
-                <button onclick="window.open('Gramas/AGW-100/AGW-100-1.pdf', '_blank')">View More</button>
-                <button onclick="location.href='quote.html'">Request a Quote</button>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose Our Products</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="feature-title">Premium Quality</h3>
+                        <p>Manufactured with the highest quality materials for unmatched durability and realism.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="feature-title">Eco-Friendly</h3>
+                        <p>Save water and reduce maintenance while enjoying a beautiful green space year-round.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">UV Protected</h3>
+                        <p>Advanced UV stabilization ensures your grass stays vibrant for years.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <h3 class="feature-title">Warranty</h3>
+                        <p>Industry-leading warranties that demonstrate our confidence in the product.</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <div class="producto">
-            <img src="../PRODUCTOS/Gramas/Putting-Green/putting-green-1.jpg" alt="Sports Grass">
-            <h2>Putting-Green</h2>
-            <div class="buttons">
-                <button onclick="window.open('Gramas/Putting-Green/putting-green.pdf', '_blank')">View More</button>
-                <button onclick="location.href='quote.html'">Request a Quote</button>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Artificial Grass Tampa. All rights reserved.</p>
+        <div class="container footer-content">
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Artificial Grass Tampa. All Rights Reserved.</p>
+        </div>
     </footer>
 
-    <!-- Script para el menú de hamburguesa -->
+    <!-- Scripts -->
     <script>
+        // Mobile Menu Toggle
         const mobileMenu = document.getElementById('mobile-menu');
         const navbarMenu = document.getElementById('navbar-menu');
 
         mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
             navbarMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.navbar-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navbarMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if(window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+            }
         });
     </script>
 </body>
